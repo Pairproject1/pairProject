@@ -1,10 +1,25 @@
 // var arrLeft = [{Rocket : "./file left/Raised-fist-gestures-emoji-on-transparent-PNG.png"},
 // {Scissor:"./file left/Victory-hand-gestures-emoji-Preimum-vector-PNG (1)23.png"},{Paper:"file left/Hand-with-fingers-splayed-gestu66res-on-transparent-PNG.png"}]
+
+
+
+
 // var arrRight=[{Rocket: "./file right/Hand-with-fingers-splayed-gestures6-on-transparent-PNG.png"},
 // {Sissor:"./file right/Victory-hand-gestures-emoji-Preimu645m-vector-PNG (1)23.png"},
 // {Paper:"./file right/Hand-with-fingers-splayed-gestures6-on-transparent-PNG.png"}]
 var arrLeft = ["./file left/Raised-fist-gestures-emoji-on-transparent-PNG.png","./file left/Victory-hand-gestures-emoji-Preimum-vector-PNG (1)23.png",
 "file left/Hand-with-fingers-splayed-gestu66res-on-transparent-PNG.png"]
+
+
+var arrRight=["./file right/Raised-fist-gestures-emoji-o99n-transpare5nt-PNG.png",
+"./file right/Victory-hand-gestures-emoji-Preimu645m-vector-PNG (1)23.png",
+"./file right/Hand-with-fingers-splayed-gestures6-on-transparent-PNG.png"]
+
+
+
+
+var win = $('<h1></h1>')
+
 var arrRight=["./file right/Raised-fist-gestures-emoji-o99n-transpare5nt-PNG.png",
 "./file right/Victory-hand-gestures-emoji-Preimu645m-vector-PNG (1)23.png",
 "./file right/Hand-with-fingers-splayed-gestures6-on-transparent-PNG.png"]
@@ -14,22 +29,123 @@ var body=$("body")
 var numberWin=0
 win.text("Win :"+ numberWin)
 win.appendTo(body)
+
+
+var Lose=$('<h1></h1>')
+
 var Lose=$('<h1></h1>')
 Lose.addClass( "lose" );
+
 var numberLose=0
 Lose.text("Lose :"+ numberLose)
 Lose.appendTo(body)
 
 var Draw=$('<h1></h1>')
+
+var numberDraw=0
+Draw.text("Draw :"+ numberDraw)
+Draw.appendTo(body)
+
+
+
 Draw.addClass( "draw" );
 var numberDraw=0
 Draw.text("Draw :"+ numberDraw)
 Draw.appendTo(body)
+
     $('#b1').click(function() {
     var rand=Math.floor(Math.random()*3)
     $("#fest_left").attr("src",arrLeft[0])
     $("#fest_right").attr("src",arrRight[rand])
     if(rand===0){
+
+         numberDraw++
+         Draw.text("Draw :"+ numberDraw)
+        
+         }
+    else if(rand===1){
+        numberWin++
+        win.text("Win :"+ numberWin)
+        
+    }
+    else if(rand===2){
+        numberLose++
+        Lose.text("Lose :"+ numberLose)}
+
+     } )
+
+
+    $('#b2').click(function() {
+        var rand1=Math.floor(Math.random()*3)
+        $("#fest_left").attr("src",arrLeft[1])
+        $("#fest_right").attr("src",arrRight[rand1])
+            if(rand1===0){
+                numberLose++
+                Lose.text("Lose :"+ numberLose)
+            }
+        else if(rand1===1){
+            numberDraw++
+            Draw.text("Draw :"+ numberDraw)
+        }
+        else if(rand1===2){
+        numberWin++
+        win.text("Win :"+ numberWin)
+        }
+        })
+    
+        
+    $('#b3').click(function() {
+        var rand2=Math.floor(Math.random()*3)
+        $("#fest_left").attr("src",arrLeft[2])
+        $("#fest_right").attr("src",arrRight[rand2])
+        if(rand2===0){
+        numberWin++
+        win.text("Win :"+ numberWin)
+        }
+        else if(rand2===1){
+        numberLose++
+        Lose.text("Lose :"+ numberLose)
+        }
+        else if(rand2===2){
+            numberDraw++
+            Draw.text("Draw :"+ numberDraw)
+           }
+        })
+        
+        
+        var final=$('<button id="b4" onclick=rePlayer()>Play again</button>')
+        
+        function rePlayer(){
+                window.location.reload()       
+             }
+             var finalmes=$("<h1></h1>")
+            
+            
+             $(".buttons").click(function(){
+            if(numberWin===3){
+                finalmes.text("You won")
+                finalmes.appendTo(body)
+                final.appendTo(body)
+                $(".buttons").empty()
+                }
+                else if(numberLose===3){
+                    finalmes.text("You lost")
+                    finalmes.appendTo(body)
+                    final.appendTo(body)
+                    $(".buttons").empty()
+
+                }
+                else if(numberDraw===3){
+                finalmes.text("You drew")
+                finalmes.appendTo(body)
+                final.appendTo(body)
+                  $(".buttons").empty()
+                }
+
+        })
+        
+
+    
         numberDraw++
         Draw.text("Draw :"+ numberDraw)
        
@@ -112,3 +228,4 @@ Draw.appendTo(body)
             final.appendTo(body)
            }
        
+
